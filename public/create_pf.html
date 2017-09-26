@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Portfolio MRI</title>
+
+
+
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <script type="text/javascript" src="js/vendors/modernizr/modernizr.custom.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+    <script type="text/javascript" src="js/vendors/bootstrap/bootstrap.min.js"></script>
+
+    
+    <!-- Bar Neg stack chart -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/gantt.js"></script>
+    <script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+
+     <meta name="google-signin-client_id" content="367336493405-jkd0rrgie521ehpus187006fqrhsgqnl.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript">
+        //$('#loginBtn').on('click', function(){
+            //var name = [];
+            var u = sessionStorage.getItem("user");
+            u = u.split("@");
+            //console.log(u[0]);
+            //alert(u[0]);
+        //});
+    </script>
+    
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+    
+    <style type="text/css">
+        
+
+        .ui-autocomplete {
+
+            z-index: 1000 !important;
+        }
+        
+
+        #country-list {
+
+            float: left;
+
+            list-style: none;
+
+            padding: 0;
+
+            width: 100%;
+
+            position: absolute;
+        }
+
+
+
+        #country-list li {
+
+            padding: 10px;
+
+            background: #f0f0f0;
+
+            border-bottom: #bbb9b9 1px solid;
+        }
+
+
+
+        #country-list li:hover {
+
+            background: #ece3d2;
+
+            cursor: pointer;
+        }
+
+
+
+        .dropList {
+
+            background-color: #179ECA;
+        }
+
+
+
+        .ui-autocomplete li {
+
+            padding: 10px;
+
+            background: #f0f0f0;
+
+            border-bottom: #bbb9b9 1px solid;
+        }
+
+
+
+        .ui-autocomplete li:hover {
+
+            background: #ece3d2;
+
+            cursor: pointer;
+        }
+
+
+
+        .ui-corner-all,
+
+        .ui-autocomplete li a,
+
+        .ui-autocomplete li a:hover,
+
+        .ui-autocomplete li:hover a {
+
+            text-decoration: none;
+
+            border: none;
+
+            background: none;
+        }
+        /*1st switch*/
+
+        .switch6 {
+
+            max-width: 17em;
+
+            margin: 0 auto;
+        }
+
+
+
+        .switch6-light>span,
+
+        .switch-toggle>span {
+
+            color: #000000;
+        }
+
+
+
+        .switch6-light span span,
+
+        .switch6-light label,
+
+        .switch-toggle span span,
+
+        .switch-toggle label {
+
+            color: #2b2b2b;
+        }
+
+
+
+        .switch-toggle a,
+
+        .switch6-light span span {
+
+            display: none;
+        }
+
+
+
+        .switch6-light {
+
+            display: block;
+
+            height: 35px;
+
+            cursor: pointer;
+
+            margin-bottom: 0;
+
+            position: relative;
+
+            overflow: visible;
+
+            padding: 0px;
+
+            margin-left: 0px;
+        }
+
+
+
+        .switch6-light * {
+
+            box-sizing: border-box;
+        }
+
+
+
+        .switch6-light a {
+
+            display: block;
+
+            transition: all 0.3s ease-out 0s;
+        }
+
+
+
+        .switch6-light label,
+
+        .switch6-light>span {
+
+            line-height: 35px;
+
+            vertical-align: middle;
+        }
+
+
+
+        .switch6-light label {
+
+            font-weight: 700;
+
+            margin-bottom: px;
+
+            max-width: 100%;
+        }
+
+
+
+        .switch6-light input:focus~a,
+
+        .switch6-light input:focus+label {
+
+            outline: 1px dotted rgb(136, 136, 136);
+        }
+
+
+
+        .switch6-light input {
+
+            position: absolute;
+
+            opacity: 0;
+
+            z-index: 5;
+        }
+
+
+
+        .switch6-light input:checked~a {
+
+            right: 0%;
+        }
+
+
+
+        .switch6-light>span {
+
+            position: absolute;
+
+            left: -100px;
+
+            width: 100%;
+
+            margin: 0px;
+
+            padding-right: 100px;
+
+            text-align: left;
+        }
+
+
+
+        .switch6-light>span span {
+
+            position: absolute;
+
+            top: 0px;
+
+            left: 0px;
+
+            z-index: 5;
+
+            display: block;
+
+            width: 50%;
+
+            margin-left: 100px;
+
+            text-align: center;
+        }
+
+
+
+        .switch6-light>span span:last-child {
+
+            left: 50%;
+        }
+
+
+
+        .switch6-light a {
+
+            position: absolute;
+
+            right: 50%;
+
+            top: 0px;
+
+            z-index: 4;
+
+            display: block;
+
+            width: 50%;
+
+            height: 100%;
+
+            padding: 0px;
+        }
+        /*2nd Switch*/
+
+        .switch {
+
+            position: relative;
+
+            display: inline-block;
+
+            width: 60px;
+
+            height: 34px;
+        }
+
+
+
+        .switch input {
+
+            display: none;
+        }
+
+
+
+        .slider {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            background-color: #ccc;
+
+            -webkit-transition: .4s;
+
+            transition: .4s;
+        }
+
+
+
+        .slider:before {
+
+            position: absolute;
+
+            content: "";
+
+            height: 26px;
+
+            width: 26px;
+
+            left: 4px;
+
+            bottom: 4px;
+
+            background-color: white;
+
+            -webkit-transition: .4s;
+
+            transition: .4s;
+        }
+
+
+
+        input:checked+.slider {
+
+            background-color: #2196F3;
+        }
+
+
+
+        input:focus+.slider {
+
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+
+
+        input:checked+.slider:before {
+
+            -webkit-transform: translateX(26px);
+
+            -ms-transform: translateX(26px);
+
+            transform: translateX(26px);
+        }
+        /* Rounded sliders */
+
+        .slider.round {
+
+            border-radius: 34px;
+        }
+
+
+
+        .slider.round:before {
+
+            border-radius: 50%;
+        }
+    </style>
+
+
+
+    <style type="text/css">
+        @font-face {
+
+            font-family: "MyFont";
+
+            src: url('fonts/PTF55F.ttf') format("truetype");
+        }
+
+
+
+        @font-face {
+
+            font-family: "graph";
+
+            src: url('fonts/NotoSans-Italic.ttf') format("truetype");
+        }
+
+
+
+
+
+
+
+
+
+        .wrapper {
+
+            width: 100%;
+
+            /*height:600px;*/
+            border: 1px solid #ddd;
+
+            margin: 0 auto;
+
+            font-family: 'MyFont', serif;
+
+            margin-top: 37px;
+
+            ;
+
+            /*padding: 10px;*/
+        }
+
+
+
+        .wrapper h2 {
+
+            text-align: left;
+
+            border-bottom: 1px solid #ddd;
+
+            padding: 0 20px;
+
+            padding-bottom: 10px;
+
+            margin-top: 10px;
+        }
+
+
+
+
+
+        .toolTip {
+
+            position: absolute;
+
+            display: none;
+
+            min-width: 80px;
+
+            height: auto;
+
+            background: none repeat scroll 0 0 #ffffff;
+
+            border: 1px solid #6F257F;
+
+            padding: 14px;
+
+            text-align: center;
+        }
+
+
+
+
+
+        .tabcontent {
+
+            display: none;
+
+            padding: 6px 12px;
+        }
+
+
+
+
+
+        .bglg {
+
+            width: 15px;
+
+            margin-right: 5px;
+
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: #0D2747;
+
+            float: left;
+        }
+
+
+
+        .smplg {
+
+            width: 15px;
+
+            height: 15px;
+
+            margin-right: 5px;
+
+            border-radius: 50%;
+
+            /*margin-left:20px;*/
+            background: #6D94AD;
+
+            float: left;
+        }
+
+        .step-4table td {
+
+            font-size: 18px;
+        }
+
+        .step-4table th {
+
+            font-weight: normal !important;
+
+            font-size: 15px !important;
+        }
+
+        tr.header
+		{
+		    cursor:pointer;
+		}
+    </style>
+    
+
+    <style type="text/css">
+
+        .parent ~ .cchild {
+            
+            /*display: none;*/
+            
+            /*visibility: hidden;*/
+            
+            
+        }
+        .open .parent ~ .cchild {
+            
+            /*display: table-row;*/
+            /*visibility: table-row;*/
+            
+        }
+        .parent {
+          cursor: pointer;
+          border:1px solid #ddd;
+        }
+
+        #tableStep3AdvanceView {
+          display:inline-table;
+            
+            border-collapse: separate;
+            
+        }
+
+        
+        /*.open {
+          background-color: #e6e6e6;
+        }*/
+
+        /*.open .cchild {
+          background-color: #999;
+          color: white;
+        }*/
+        .parent > *:last-child {
+          width: 30px;
+        }
+        .parent i {
+          transform: rotate(0deg);
+          transition: transform .3s cubic-bezier(.4,0,.2,1);
+          margin: -.5rem;
+          padding: .5rem;
+         
+        }
+        .late .parent i {
+          transform: rotate(180deg)
+        }
+        /*.intro .parent i {
+          transform: rotate(180deg)
+        }*/
+
+
+        .amcharts-export-menu, .amcharts-export-menu-top-right, .amExportButton, .export-main a{
+            display: none;
+        }
+
+        .amcharts-chart-div a{
+            display: none !important;
+        }
+
+
+        .orb-form .label {
+            border-radius: 0;
+            font-size: 100%;
+            text-align: left;
+            white-space: normal;
+            color: inherit;
+        }
+        .orb-form .label {
+            display: block;
+            margin-bottom: 6px;
+            line-height: 19px;
+            font-weight: 400;
+        }
+        .orb-form *, .orb-form *::after, .orb-form *::before {
+            margin: 0;
+                margin-bottom: 0px;
+            box-sizing: content-box;
+            -moz-box-sizing: content-box;
+        }
+    </style>
+
+</head>
+
+
+
+
+
+<body>
+
+    <script type="text/javascript">
+    	var BG_added = 0;
+        var lines = [];
+
+        var ticker = [];
+
+        var investAmount = 0;
+
+        var numberOfComp = 0;
+
+        var invArr = [];
+
+        var comp = [];
+
+        var totalAmount = 0;
+
+        var newNumberOfComp = 0;
+
+        var newComp = [];
+
+        var newInvArr = [];
+
+        // var colorOriginal = ['#0f2747', '#143a6d', '#3b69a5', '#819fc6', '#D2E1F6'];
+
+        // var color = ['#fff', '#fff', '#fff', '#fff', '#fff', '#000', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff'];
+
+        // var colorNew = ['#000', '#000', '#000', '#000', '#000', '#fff', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000'];
+
+        var fivecColor = ['#0f2747', '#143a6d', '#3b69a5', '#819fc6', '#D2E1F6'];
+        var color = ['#D2E1F6', '#819fc6', '#D2E1F6', '#D2E1F6', '#D2E1F6'];
+        var colorOriginal = ['#fff', '#fff', '#fff', '#fff', '#fff'];
+        var setWhite = ['#fff'];
+        var setBlack = ['#000'];
+
+
+
+        
+        var flage = 0;
+
+
+
+        var col3 = ["", "Return on Equity", "Return on Invested Capital", "Gross Margin", "After Tax Operating Margin", "Gross Margin x After Tax Op Margin", "Operating Margin", "Net Profit Margin", "ROIC vs WACC", "Gross Margin x Asset Turnover", "Sales Growth", "EBIT Growth", "EPS Growth", "Div Per Share Growth", "Cash Flow Per Share Growth", "Book value Per Share Growth", "Assets / Equity", " Total Debt to Capital", "Debt to EBITDA", "Asset Turnover Ratio", "Times Interest Earned", "Current Ratio", "R&D Relative to Peers", "CapEx Rel to Peers", "Expected Dividend Growth", "Rel Premium Pd to Cancel Shares", "Price to Book Value", "Enterprise Value to Sales", "Enterprise Value to EBITDA", "Price to Trailing Earnings", "Discounted Cash Flow", ""];
+
+
+        var headingCol = ["", "PROFITABILITY", "", "", "", "", "", "", "", "", "GROWTH", "", "", "", "", "", "DISCIPLINE", "", "", "", "", "", "CONFIDENCE", "", "", "", "VALUATION", "", "", "", "", "Overall grade"];
+
+        var heading = ["PROFITABILITY","GROWTH","DISCIPLINE", "CONFIDENCE","VALUATION","Overall grade"];
+
+
+
+        var yearPars = ["", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg %", "3yr avg x", "3yr avg x", "3yr avg x", "3yr avg x", "3yr avg x", "3yr avg x", "3yr avg %", "3yr avg %", "1yr %", "3yr avg %", "3yr avg x", "3yr avg x", "3yr avg x", "3yr avg x", "1yr avg x", ""];
+
+        var col2 = ["", "Competitiveness", "", "", "", "", "", "", "Durable Advantage", "Quality ", "", "Change", "", "", "", "", "", "", "Financial Strength", " ", "", "Efficiency", "Leverage", "Liquidity", "", "Capital Allocation", "", "Dividend Policy", "", "", "Expectations", "", "", "", "", ""];
+
+
+        var indexArr = [];
+            indexArr[1] = 5;
+            indexArr[2] = 10;
+            indexArr[3] = 20;
+            indexArr[4] = 30;
+            indexArr[5] = 40;
+            indexArr[6] = 50;
+            indexArr[7] = 60;
+            indexArr[8] = 70;
+            indexArr[9] = 80;
+            for(var i = 10; i <= 100; i++)
+            {
+                indexArr[i] = 90;
+            }
+
+            var globalVar = 0;
+
+
+
+            var deletedRowFromVisualTableVal = [100,100,100,100,100];
+            var deletedRowFromVisualTableHIndx = [0,0,0,0,0];
+
+            var numberOfDeletedRowFromVisualTable = 0;
+
+
+            var rowSpan = [9, 6, 6, 4, 5];
+
+            
+    </script>
+
+
+
+    <!--Smooth Scroll-->
+
+    <div class="" style="width:100%; float:left; background:#fff;">
+
+        <!--Navigation-->
+
+        <nav class="main-header clearfix" role="navigation" > <a class="navbar-brand" href="index.html"><span class="text-blue">pMRI</span></a> 
+      
+      
+        <!--Navigation Itself-->
+          
+        <div class="navbar-content"> 
+            
+            
+            <!--Settings Dropdown-->
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i></button>
+              <div id="settings-dropdown" class="dropdown-menu keep_open orb-form">
+                <div class="dropdown-header"><p id="user_name"> </p> </div>
+                <div class="dropdown-container" style="height: 100px;">
+                  <div class="nano has-scrollbar">
+                    <div class="nano-content" tabindex="0" style="right: -17px;">
+                        
+                    </div>
+                  <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div></div></div>
+                </div>
+                <div class="dropdown-footer"> <a class="btn btn-dark" href="index.html">Log out</a> </div>
+              </div>
+            </div> 
+            <!--Notifications Dropdown-->
+        </div>
+    </nav>
+
+        <!--/Navigation-->
+        <div class="center-block" style="margin-top: 200px; width: 600px;">
+            <div class="login-block">
+              <form action="pmri.html" id="login-form" class="orb-form">
+                
+                <fieldset>
+                  
+                  <section>
+                    <div class="row">
+                      <label class="label col col-5">Create a new portfolio for</label>
+                      <div class="col col-5">
+                        <label class="input"> <i class="icon-append fa fa-plus" style="line-height: 35px;"></i>
+                          <input type="text" name="pf" id="pf_name">
+                        </label>
+                        
+                      </div>
+                      <div class="col col-2">
+                          <button type="submit" class="btn btn-default" id="createBtn">Create</button>
+                      </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+
+                        <label style="margin-left: 15px;">Previous portfolio(s): </label>  
+                        <br>
+                        <!-- <div class="col col-5"> -->
+                            <table class="table table-hover" style="margin-top: 10px;">
+                                
+                                <tbody>
+                                  <tr>
+                                    <td><a href="pmri.html" class="list-group-item" style="border: none; color: #000;">Apple Inc.</a></td>
+                                    <td><a class="list-group-item" style="border: none; color: #000;">pmri.whyalog.org/appleinc</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td><a href="pmri.html" class="list-group-item" style="border: none; color: #000;">Facebook</a></td>
+                                    <td><a class="list-group-item" style="border: none; color: #000;">pmri.whyalog.org/facebook</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td><a href="pmri.html" class="list-group-item" style="border: none; color: #000;">Google</a></td>
+                                    <td><a class="list-group-item" style="border: none; color: #000;">pmri.whyalog.org/google</a></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        <!-- </div>  -->
+                        <!-- <div class="col col-2">
+                          <button type="submit" class="btn btn-default" id="openBtn">Open</button>
+                      </div>  -->
+                    </div>
+                  </section>
+                  
+                </fieldset>
+                <!-- <footer>
+                  
+                </footer> -->
+              </form>
+            </div>
+        </div>
+
+
+            <!-- scroll top -->
+
+            <div class="scroll-top-wrapper hidden-xs"> <i class="fa fa-angle-up"></i> </div>
+
+            <!-- /scroll top -->
+
+
+
+            <!--Modals-->
+
+            <script src="js/main.js"></script>
+
+            <script src="https://d3js.org/d3.v4.min.js"></script>
+
+            <script type="text/javascript" src="msddd.js"></script>
+
+            <script type="text/javascript" src="msdddStep4.js"></script>
+
+            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+            <script src="js/jquery.sparkline.min.js"></script>
+            <script type="text/javascript">
+                $('#user_name').html(u[0]);
+            </script>
+
+            <script>
+              function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                  console.log('User signed out.');
+                });
+              }
+            </script>
+            <script type="text/javascript">
+                $('#createBtn').on('click',function(){
+                    sessionStorage.setItem('pf', $('#pf_name').val() );
+                    var d = new Date();
+
+                    var month = d.getMonth()+1;
+                    var day = d.getDate();
+
+                    var output = d.getFullYear() + '/' +
+                        (month<10 ? '0' : '') + month + '/' +
+                        (day<10 ? '0' : '') + day;
+                    sessionStorage.setItem('pf_date', output );
+                    //window.location.href = 'create_pf.html';
+                });
+
+                $('#openBtn').on('click',function(){
+                    sessionStorage.setItem('pf', $('.select_pf').text());
+                    sessionStorage.setItem('pf_date', '2016/11/12' );
+                    //window.location.href = 'create_pf.html';
+                });
+            </script>
+
+            <!--JQuery-->   
+
+            <script type="text/javascript" src="js/vendors/jquery/jquery.min.js"></script>
+
+            <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+            <!--Fullscreen-->
+
+            <script type="text/javascript" src="js/vendors/fullscreen/screenfull.min.js"></script>
+
+            <!--NanoScroller-->
+
+            <script type="text/javascript" src="js/vendors/nanoscroller/jquery.nanoscroller.min.js"></script>
+
+            <!--Sparkline-->
+
+            <!-- <script type="text/javascript" src="js/vendors/sparkline/jquery.sparkline.min.js"></script> -->
+            <!--Horizontal Dropdown-->
+
+            <script type="text/javascript" src="js/vendors/horisontal/cbpHorizontalSlideOutMenu.js"></script>
+
+            <script type="text/javascript" src="js/vendors/classie/classie.js"></script>
+
+</body>
+
+
+
+</html>

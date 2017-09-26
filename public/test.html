@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table, tr, td, th
+{
+    border: 1px solid black;
+    border-collapse:collapse;
+}
+tr.header
+{
+    cursor:pointer;
+}
+	</style>
+
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table >
+  <tr  class="header">
+      <th colspan="2">Header <span>-</span></th>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+  <tr  class="header">
+    <th colspan="2">Header <span>-</span></th>
+  </tr>
+  <tr>
+    <td>date</td>
+    <td>data</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+	$('.header').click(function(){
+				   $(this).find('span').text(function(_, value){return value=='-'?'+':'-'});
+				    $(this).nextUntil('tr.header').slideToggle(100, function(){
+
+				    });
+				});
+</script>
+</body>
+
+</html>
