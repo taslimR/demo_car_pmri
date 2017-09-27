@@ -778,7 +778,7 @@
 
         <!--Navigation-->
 
-        <nav class="main-header clearfix" role="navigation" > <a class="navbar-brand" href="index.html"><span class="text-blue">pMRI</span></a> 
+        <nav class="main-header clearfix" role="navigation" > <a class="navbar-brand" href="#"><span class="text-blue">pMRI</span></a> 
       
       
         <!--Navigation Itself-->
@@ -798,7 +798,7 @@
                     </div>
                   <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div></div></div>
                 </div>
-                <div class="dropdown-footer"> <a class="btn btn-dark" href="index.html">Log out</a> </div>
+                <div class="dropdown-footer"> <a class="btn btn-dark" href="/logout_pmri" onclick="logout();">Log out</a> </div>
               </div>
             </div> 
             <!--Notifications Dropdown-->
@@ -808,7 +808,7 @@
         <!--/Navigation-->
         <div class="center-block" style="margin-top: 200px; width: 600px;">
             <div class="login-block">
-              <form action="pmri.html" id="login-form" class="orb-form">
+              <form action="/pmri" id="login-form" class="orb-form">
                 
                 <fieldset>
                   
@@ -834,15 +834,15 @@
                                 
                                 <tbody>
                                   <tr>
-                                    <td><a href="pmri.html" class="list-group-item" style="border: none; color: #000;">Apple Inc.</a></td>
+                                    <td><a href="/pmri" class="list-group-item" style="border: none; color: #000;">Apple Inc.</a></td>
                                     <td><a class="list-group-item" style="border: none; color: #000;">pmri.whyalog.org/appleinc</a></td>
                                   </tr>
                                   <tr>
-                                    <td><a href="pmri.html" class="list-group-item" style="border: none; color: #000;">Facebook</a></td>
+                                    <td><a href="/pmri" class="list-group-item" style="border: none; color: #000;">Facebook</a></td>
                                     <td><a class="list-group-item" style="border: none; color: #000;">pmri.whyalog.org/facebook</a></td>
                                   </tr>
                                   <tr>
-                                    <td><a href="pmri.html" class="list-group-item" style="border: none; color: #000;">Google</a></td>
+                                    <td><a href="/pmri" class="list-group-item" style="border: none; color: #000;">Google</a></td>
                                     <td><a class="list-group-item" style="border: none; color: #000;">pmri.whyalog.org/google</a></td>
                                   </tr>
                                 </tbody>
@@ -940,6 +940,11 @@
             <script type="text/javascript" src="js/vendors/horisontal/cbpHorizontalSlideOutMenu.js"></script>
 
             <script type="text/javascript" src="js/vendors/classie/classie.js"></script>
+            <script type="text/javascript">
+  function logout(){
+    sessionStorage.clear();
+  };
+</script>
 
 </body>
 

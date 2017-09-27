@@ -9,7 +9,10 @@
   "author": "taslimR",
   "license": "ISC",
   "dependencies": {
-    "express": "*"
+    "body-parser": "*",
+    "express": "*",
+    "express-session": "*",
+    "ejs": "*"
   },
   "devDependencies": {}
 }

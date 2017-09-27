@@ -783,7 +783,7 @@
 
 
     <!--Smooth Scroll-->
-    <nav class="main-header clearfix" role="navigation" style="background: #33383D;"> <a class="navbar-brand" href="pmri.html"><span class="text-blue">pMRI</span></a> 
+    <nav class="main-header clearfix" role="navigation" style="background: #33383D;"> <a class="navbar-brand" href="/pmri"><span class="text-blue">pMRI</span></a> 
           
           
           <!--Navigation Itself-->
@@ -804,7 +804,7 @@
                     </div>
                   <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div></div></div>
                 </div>
-                <div class="dropdown-footer "><label><a class="btn btn-dark" href="#" id="gal">Generate a link</a> <a class="btn btn-dark" style="margin-left: 25px;" href="index.html">Log out</a> </label></div>
+                <div class="dropdown-footer "><label><a class="btn btn-dark" href="#" id="gal">Generate a link</a> <a class="btn btn-dark" style="margin-left: 25px;" href="/logout_pmri" onclick="logout();">Log out</a> </label></div>
 
               </div>
             </div>
@@ -3954,6 +3954,11 @@
                 });
                 </script>
 
+                <script type="text/javascript">
+  function logout(){
+    sessionStorage.clear();
+  };
+</script>
             <!--JQuery-->
             
 

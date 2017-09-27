@@ -17,7 +17,7 @@
 <div class="colorful-page-wrapper">
 	<div class="center-block">
 	    <div class="login-block">
-	      <form action="create_pf.html" id="login-form" class="orb-form">
+	      <form action="/create_pf" id="login-form" class="orb-form">
 	        <header>
 	          <div class="image-block"><img src="images/logo2.png" alt="User" /></div>
 	          Login to PMRI <small>Have no account? &#8212; <a href="#">Register</a></small></header>
@@ -69,6 +69,7 @@
 	    </div>
 
 	</div>
+	<a href="/logout" style="float: right;background: #fff; padding: 5px;"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 </div>
 
 <!--Scripts--> 
@@ -102,13 +103,15 @@
     }
 
 </script>
-<script type="text/javascript">
-	$('#loginBtn').on('click',function(){
-		sessionStorage.clear();
-		sessionStorage.setItem('user', $('#user_email').val() );
-		// alert($('#user_email').val() );
-		//window.location.href = 'create_pf.html';
-	});
+<script>
+   //name;
+  //if(sessionStorage.getItem("user") == null){
+    var name = "<%= t1 %>";
+    //alert(name);
+    sessionStorage.setItem("user", name);
+  //}
+  //alert(sessionStorage.getItem("user"));
+  
 </script>
 
 <!--/Scripts-->
